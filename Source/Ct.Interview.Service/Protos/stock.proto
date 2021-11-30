@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option csharp_namespace = "Ct.Interview.Service";
+
+package stock;
+
+// The service definition.
+service Stock {
+  // Retrieves the information about a company being traded in a stock exchange.
+  rpc GetCompanyByCountryCodeAndStockCode (CompanyRequest) returns (CompanyResponse);
+}
+
+// The request message containing the information needed to get a company information.
+message CompanyRequest {
+  string countryCode = 1;
+  string stockCode = 2;
+}
+
+// The response message containing the information about a company being traded in the stock exchange.
+message CompanyResponse {
+  int64 companyId = 1;
+  string exchangeId = 2;
+  string countryCode = 3;
+  string companyName = 4;
+  string stockCode = 5;
+  string gicsIndustryGroup = 6;
+  bool listStatus = 7;
+}
